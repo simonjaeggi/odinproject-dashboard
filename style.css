@@ -159,18 +159,20 @@ body {
     background-color: whitesmoke;
 
     display: grid;
-    grid-template-columns: 1fr 200px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 4fr minmax(300px, 1fr);
+    grid-template-rows: min-content 1fr;
     grid-template-areas: 
     'content_projects content_announcements'
     'content_projects content_trending'
     ;
+    padding: 2rem;
+    gap: 2rem;
 }
 .content_projects{
     grid-area: content_projects;
     display: grid;
     grid-template-rows: min-content 1fr;
-    margin: 2rem;
+    
 }
 .content_title{
     font-size: 1.5rem;
@@ -181,28 +183,29 @@ body {
 .content_projects_grid{
     display: grid;
     align-content: start;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 1rem;
-    flex-grow: 1;
 }
-
-.content_projects_container {
-    width: 300px;
-    height: 200px;
+.content_announcements_container, .content_projects_container, .content_trending_container {
     background-color: white;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 5px 5px 5px lightgrey;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    border-left: 10px solid rgb(11, 184, 184);
     display: flex;
     flex-direction: column;
 }
-.content_projects_container:hover{
+.content_projects_container {
+    width: 400px;
+    height: 200px;
+    border-left: 10px solid rgb(11, 184, 184);
+}
+
+.content_projects_container:hover, .content_announcements_container:hover, .content_trending_container:hover{
     box-shadow: 5px 10px 10px grey;
 }
 
-.content_projects_container_title{
+.content_projects_container_title, .content_announcement_title{
     font-weight: 700;
 }
 
@@ -212,10 +215,42 @@ body {
 }
 .content_announcements {
     grid-area: content_announcements;
-
+    display: flex;
+    flex-direction: column;
 }
+.content_announcements_container{
+    gap: 1rem;
+}
+.content_announcement_divider {
+    border-radius: 1px;
+    border: 1px solid rgb(218, 218, 218);
+}
+
+
 .content_trending {
     grid-area: content_trending;
-
+    display: flex;
+    flex-direction: column;
+}
+.content_trending_container {
+    gap: 1rem;
+}
+.content_trending_item{
+    display: flex;
+    gap: 1rem;
 }
 
+.content_trending_item img{
+    height: 2.5rem;
+}
+.content_trending_item_text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.content_trending_item_project{
+    color: rgb(118, 118, 118);
+}
+.content_trending_item_username{
+    font-size: 0.9rem;
+}
