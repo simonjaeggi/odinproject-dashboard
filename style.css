@@ -64,9 +64,9 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     margin: 0.5rem;
-
+    border-radius: 0.2rem;
 }
-.sidebar_nav_item :hover{
+.sidebar_nav_item:hover{
     background-color: rgb(11, 184, 184);
 }
 
